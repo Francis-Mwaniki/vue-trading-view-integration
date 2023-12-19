@@ -90,6 +90,30 @@
         height: 1.5rem;
     }
 
+
+@media (max-width: 768px) {
+  .toggle-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.toggle-btn:hover {
+    background-color: #333;
+    color: #fff;
+
+}
+
+}
    
   </style>
   
