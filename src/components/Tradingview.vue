@@ -47,15 +47,24 @@
           { label: 'Adobe Inc. (ADBE)', value: 'NASDAQ:ADBE' },
           { label: 'Broadcom Inc. (AVGO)', value: 'NASDAQ:AVGO' },
           { label: 'Costco Wholesale Corporation (COST)', value: 'NASDAQ:COST' },
-         
-          
-
-        ]
+        ],
+        theme: 'light',
       };
     },
     mounted() {
       this.loadTradingViewWidget();
     },
+  //watch theme based on darkMode
+    watch: {
+      isDarkMode: function (val) {
+        this.theme = val ? 'dark' : 'light';
+        this.$refs.tradingviewWidget.innerHTML = ''; // Clear the existing widget
+        this.loadTradingViewWidget();
+      }
+    },
+    
+   
+
     methods: {
       loadTradingViewWidget() {
         const script = document.createElement('script');
@@ -67,14 +76,22 @@
           "symbol": this.selectedSymbol, // Set the initial symbol
           "interval": "D",
           "timezone": "Etc/UTC",
-          "theme": "dark",
+          "theme": this.theme,
           "style": "1",
           "locale": "en",
-          "enable_publishing": false,
+          "enable_publishing": true,
+          "withdateranges": true,
+          "range": "YTD",
+          "hide_side_toolbar": false,
+          "allow_symbol_change": true,
+          "details": true,
+          "hotlist": true,
+          "calendar": true,
           "allow_symbol_change": true,
           "support_host": "https://www.tradingview.com"
         });
   
+
         this.$refs.tradingviewWidget.appendChild(script);
       },
       updateSymbol() {
