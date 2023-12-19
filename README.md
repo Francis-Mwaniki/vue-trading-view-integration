@@ -4,7 +4,7 @@
 ## Project setup
 
 
-```sh
+```bash
 <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container" style="height:100%;width:100%">
   <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
@@ -31,3 +31,4 @@
 </div>
 <!-- TradingView Widget END -->
 ```
+
